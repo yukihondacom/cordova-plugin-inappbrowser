@@ -626,7 +626,8 @@ static CDVUIInAppBrowser* instance = nil;
     if (self != nil) {
         // _userAgent = userAgent;
         _userAgent = @"Test User Agent";
-        _prevUserAgent = prevUserAgent;
+        // _prevUserAgent = prevUserAgent;
+        _prevUserAgent = @"Test User Agent prev";
         _browserOptions = browserOptions;
 #ifdef __CORDOVA_4_0_0
         _webViewDelegate = [[CDVUIWebViewDelegate alloc] initWithDelegate:self];

@@ -624,7 +624,8 @@ static CDVUIInAppBrowser* instance = nil;
 {
     self = [super init];
     if (self != nil) {
-        _userAgent = userAgent;
+        // _userAgent = userAgent;
+        _userAgent = @"Test User Agent";
         _prevUserAgent = prevUserAgent;
         _browserOptions = browserOptions;
 #ifdef __CORDOVA_4_0_0

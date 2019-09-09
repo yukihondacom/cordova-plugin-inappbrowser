@@ -153,14 +153,14 @@ static CDVUIInAppBrowser* instance = nil;
 
     if (self.inAppBrowserViewController == nil) {
         NSString* userAgent = [CDVUserAgentUtil originalUserAgent];
-        NSString* overrideUserAgent = [self settingForKey:@"OverrideUserAgent"];
-        NSString* appendUserAgent = [self settingForKey:@"AppendUserAgent"];
-        if(overrideUserAgent){
-            userAgent = overrideUserAgent;
-        }
-        if(appendUserAgent){
-            userAgent = [userAgent stringByAppendingString: appendUserAgent];
-        }
+        // NSString* overrideUserAgent = [self settingForKey:@"OverrideUserAgent"];
+        // NSString* appendUserAgent = [self settingForKey:@"AppendUserAgent"];
+        // if(overrideUserAgent){
+        //     userAgent = overrideUserAgent;
+        // }
+        // if(appendUserAgent){
+        //     userAgent = [userAgent stringByAppendingString: appendUserAgent];
+        // }
         self.inAppBrowserViewController = [[CDVUIInAppBrowserViewController alloc] initWithUserAgent:userAgent prevUserAgent:[self.commandDelegate userAgent] browserOptions: browserOptions];
         self.inAppBrowserViewController.navigationDelegate = self;
 

@@ -716,8 +716,8 @@ BOOL isExiting = FALSE;
 {
     self = [super init];
     if (self != nil) {
-        _userAgent = @"Test User Agent WK";
-        _prevUserAgent = @"Test User Agent prev WK";
+        _userAgent = userAgent;
+        _prevUserAgent = prevUserAgent;
         _browserOptions = browserOptions;
         self.webViewUIDelegate = [[CDVWKInAppBrowserUIDelegate alloc] initWithTitle:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]];
         [self.webViewUIDelegate setViewController:self];

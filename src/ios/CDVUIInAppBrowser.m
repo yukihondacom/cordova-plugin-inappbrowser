@@ -153,14 +153,14 @@ static CDVUIInAppBrowser* instance = nil;
 
     if (self.inAppBrowserViewController == nil) {
         NSString* userAgent = [CDVUserAgentUtil originalUserAgent];
-        // NSString* overrideUserAgent = [self settingForKey:@"OverrideUserAgent"];
-        // NSString* appendUserAgent = [self settingForKey:@"AppendUserAgent"];
-        // if(overrideUserAgent){
-        //     userAgent = overrideUserAgent;
-        // }
-        // if(appendUserAgent){
-        //     userAgent = [userAgent stringByAppendingString: appendUserAgent];
-        // }
+        NSString* overrideUserAgent = [self settingForKey:@"OverrideUserAgent"];
+        NSString* appendUserAgent = [self settingForKey:@"AppendUserAgent"];
+        if(overrideUserAgent){
+            userAgent = overrideUserAgent;
+        }
+        if(appendUserAgent){
+            userAgent = [userAgent stringByAppendingString: appendUserAgent];
+        }
         self.inAppBrowserViewController = [[CDVUIInAppBrowserViewController alloc] initWithUserAgent:userAgent prevUserAgent:[self.commandDelegate userAgent] browserOptions: browserOptions];
         self.inAppBrowserViewController.navigationDelegate = self;
 
@@ -624,10 +624,8 @@ static CDVUIInAppBrowser* instance = nil;
 {
     self = [super init];
     if (self != nil) {
-        // _userAgent = userAgent;
-        _userAgent = @"Test User Agent";
-        // _prevUserAgent = prevUserAgent;
-        _prevUserAgent = @"Test User Agent prev";
+        _userAgent = [[NSUserDefaults standardUserDefaults] stringForKey:@"UserAgent"];
+        _prevUserAgent = prevUserAgent;
         _browserOptions = browserOptions;
 #ifdef __CORDOVA_4_0_0
         _webViewDelegate = [[CDVUIWebViewDelegate alloc] initWithDelegate:self];

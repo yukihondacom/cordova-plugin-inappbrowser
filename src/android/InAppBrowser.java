@@ -1013,7 +1013,7 @@ public class InAppBrowser extends CordovaPlugin {
                 }
                 
                 // UserAgent呼び出し
-                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
                 String spUserAgent = sp.getString("UserAgent", null);
                 if(spUserAgent != null) {
                     settings.setUserAgentString(spUserAgent);

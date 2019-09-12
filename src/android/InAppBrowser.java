@@ -64,9 +64,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import android.os.Bundle;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
+import android.content.Context;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.Config;
@@ -1013,7 +1015,7 @@ public class InAppBrowser extends CordovaPlugin {
                 }
                 
                 // UserAgent呼び出し
-                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(cordova.getActivity());
                 String spUserAgent = sp.getString("UserAgent", null);
                 if(spUserAgent != null) {
                     settings.setUserAgentString(spUserAgent);
